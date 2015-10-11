@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="MySQL - mydbtest@localhost [2]" uuid="76ac63b5-fab1-4c03-87bd-8a616f9d660b">
+    <database-info product="MySQL" version="5.6.26-log" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.35 ( Revision: 5fb9c5849535c13917c2cf9baaece6ef9693ef27 )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower"/>
+    <schema name="" catalog="mydbtest"/>
+    <table name="city" schema="" catalog="mydbtest" type="TABLE">
+      <column name="id_city" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="city_name" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12"/>
+      <column name="country" sqlType="VARCHAR" precision="45" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id_city"/>
+      <exported-key name="city_fk" table="users" schema="" catalog="mydbtest" columns="city"/>
+      <index name="citycol_UNIQUE" unique="true" columns="city_name"/>
+    </table>
+    <table name="users" schema="" catalog="mydbtest" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="name" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12"/>
+      <column name="age" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="city" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="city_fk" columns="city" ref-table="city" ref-schema="" ref-catalog="mydbtest" ref-columns="id_city" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="city_fk_idx" unique="false" columns="city"/>
+    </table>
+  </data-source>
+</component>
